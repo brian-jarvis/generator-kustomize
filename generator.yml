@@ -1,0 +1,18 @@
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: gen-policy-generator
+policyDefaults:
+  namespace: bry-tam-policies
+  remediationAction: enforce
+  ## turn off the default compliance annotations
+  categories: []
+  controls: []
+  standards: []
+
+policies:
+  - name: test-policies
+    remediationAction: enforce
+    manifests:
+      - path: testdata/overlay

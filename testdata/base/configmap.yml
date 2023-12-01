@@ -1,0 +1,17 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: ConfigurationPolicy
+metadata:
+  name: check-kustomize
+spec:
+  remediationAction: inform
+  severity: low
+  object-templates-raw: |
+    - complianceType: mustnothave
+      objectDefinition:
+        kind: ConfigMap
+        apiVersion: v1
+        metadata:
+          name: fake-policy-holder
+          namespace: default
+        data:
+          fake: holder so policy is not generated empty
